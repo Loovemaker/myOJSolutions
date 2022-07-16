@@ -73,7 +73,7 @@ struct CPBuilder<Input, Output> where Output: Equatable {
 }
 
 @resultBuilder
-struct TrueCPBuilder<Element>{
+struct TrueCPBuilder<Element> {
     public typealias Component = [CasePair<Element, Bool>]
     public typealias Expression = Element
     
@@ -99,7 +99,7 @@ struct TrueCPBuilder<Element>{
 }
 
 @resultBuilder
-struct FalseCPBuilder<Element> where Element: Equatable {
+struct FalseCPBuilder<Element> {
     public typealias Component = [CasePair<Element, Bool>]
     public typealias Expression = Element
     

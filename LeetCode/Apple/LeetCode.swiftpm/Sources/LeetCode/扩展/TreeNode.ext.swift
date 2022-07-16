@@ -15,3 +15,20 @@ extension TreeNode {
         (self.left?.postorderTraversal ?? []) + (self.right?.postorderTraversal ?? []) + [self.val] 
     }
 }
+
+extension Optional: Equatable where Wrapped: TreeNode {
+    public static func == (lhs: TreeNode?, rhs: TreeNode?) -> Bool {
+        (lhs === nil && rhs === nil) || (
+            lhs?.val == rhs?.val
+            && lhs?.left == rhs?.left
+            && lhs?.right == rhs?.right
+        )
+    }
+}
+extension TreeNode: Equatable {
+    public static func == (lhs: TreeNode, rhs: TreeNode) -> Bool {
+        lhs.val == rhs.val
+        && lhs.left == rhs.left
+        && lhs.right == rhs.right
+    }
+}
