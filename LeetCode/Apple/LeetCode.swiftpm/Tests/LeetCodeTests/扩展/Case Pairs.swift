@@ -25,6 +25,28 @@ extension Collection where Element: CanExecute {
     }
 }
 
+extension Collection where Element: CanExecute, Element.Output: Numeric {
+    
+    func xctAssertEqual(in algorithm: (Input) -> Output,
+                        accuracy: Element.Output = 0) {
+        for element in self {
+            let results = element.put(into: algorithm)
+            XCTAssertEqual(results.expected, results.actual, accuracy: accuracy)
+        }
+    }
+}
+extension Collection where Element: CanExecute, Element.Output: FloatingPoint {
+    
+    func xctAssertEqual(in algorithm: (Input) -> Output,
+                        accuracy: Element.Output = 1e-6 as! Self.Element.Output) {
+        for element in self {
+            let results = element.put(into: algorithm)
+            XCTAssertEqual(results.expected, results.actual, accuracy: accuracy)
+        }
+    }
+}
+
+
 @resultBuilder
 struct CPBuilder<Input, Output> where Output: Equatable {
     public typealias Component = [CasePair<Input, Output>]
