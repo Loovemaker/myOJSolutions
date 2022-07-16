@@ -5,14 +5,13 @@ extension LeetCodeTests {
     
     func test_isPalindrome() {
         typealias Input = Int
-        typealias Output = Bool
         
-        @TrueCPBuilder<Input> var trueCasePairs: [CasePair<Input, Output>] {
+        @TrueCPBuilder<Input> var trueCasePairs: [CasePair<Input, Bool>] {
             121
             404
             999
         }
-        @FalseCPBuilder<Input> var falseCasePairs: [CasePair<Input, Output>] {
+        @FalseCPBuilder<Input> var falseCasePairs: [CasePair<Input, Bool>] {
             -121
             -234
         }

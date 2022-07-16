@@ -5,15 +5,14 @@ extension LeetCodeTests {
     
     func test_isValid() {
         typealias Input = String
-        typealias Output = Bool
         
-        @TrueCPBuilder<Input> var trueCasePairs: [CasePair<Input, Output>] {
+        @TrueCPBuilder<Input> var trueCasePairs: [CasePair<Input, Bool>] {
             ""
             "()"
             "[]"
             "{}"
         }
-        @FalseCPBuilder<Input> var falseCasePairs: [CasePair<Input, Output>] {
+        @FalseCPBuilder<Input> var falseCasePairs: [CasePair<Input, Bool>] {
             "(})"
             "["
         }
