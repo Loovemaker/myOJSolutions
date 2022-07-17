@@ -3,19 +3,17 @@ import XCTest
 
 extension LeetCodeTests {
     
-    func test_isPalindrome_Int() {
-        typealias Input = Int
+    func test_isPalindrome_String() {
+        typealias Input = String
         
         @TrueCPBuilder<Input> var trueCasePairs: [CasePair<Input, Bool>] {
-            121
-            404
-            999
+            "A man, a plan, a canal: Panama"
         }
         @FalseCPBuilder<Input> var falseCasePairs: [CasePair<Input, Bool>] {
-            -121
-            -234
+            "race a car"
         }
         
         (trueCasePairs + falseCasePairs).xctAssertEqual(in: solution.isPalindrome)
     }
 }
+
