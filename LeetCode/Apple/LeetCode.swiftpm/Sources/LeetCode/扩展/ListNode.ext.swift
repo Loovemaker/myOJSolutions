@@ -1,15 +1,17 @@
 extension ListNode {
-    convenience init?(from array: [Int]) {
-        var array_ = array
+    convenience init?<S>(from sequence: S)
+    where S: Sequence, S.Element == Int {
+        let root: ListNode = .init(0)
+        var current: ListNode? = root
         
-        var current: ListNode? = nil
-        while let element = array_.popLast() {
-            let newNode = ListNode(element, current)
-            current = newNode
+        for element in sequence {
+            current?.next = .init(element)
+            current = current?.next
         }
         
-        guard let current = current else { return nil }
-        self.init(current.val, current.next)
+        guard let result = root.next else { return nil }
+
+        self.init(result.val, result.next)
     }
 }
 
