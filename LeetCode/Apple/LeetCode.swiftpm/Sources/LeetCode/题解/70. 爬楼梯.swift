@@ -9,9 +9,6 @@ public extension Solution {
             return 0
         }
         
-        // stairs methods count
-        var smc = [1, 1, 2, 3, 5, 8, 13, 21, 34]
-        
         if n < smc.count {
             return smc[n]
         }
@@ -22,3 +19,6 @@ public extension Solution {
         return smc[n]
     }
 }
+
+/// stairs methods count
+fileprivate var smc = [1, 1, 2, 3, 5, 8, 13, 21, 34]

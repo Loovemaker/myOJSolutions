@@ -6,7 +6,6 @@ public extension Solution {
     /// - 🫙：50%
     func countAndSay(_ n: Int) -> String {
         precondition(n > 0)
-        let cache = ["", "1", "11", "21", "1211", "111221"]
         
         if n < cache.count {
             return cache[n]
@@ -34,17 +33,19 @@ public extension Solution {
         
         return result
     }
-    
-    fileprivate typealias Memory = (count: Int, char: Character?)
-    
-    fileprivate func clearMemory(char: Character?,
-                                 memory: inout Memory,
-                                 result: inout String
-    ) {
-        if let mchar = memory.char, char != mchar {
-            result.append(Character(String(memory.count)))
-            result.append(Character(String(mchar.hexDigitValue!)))
-            memory = (0, nil)
-        }
+}
+
+fileprivate let cache = ["", "1", "11", "21", "1211", "111221"]
+
+fileprivate typealias Memory = (count: Int, char: Character?)
+
+fileprivate func clearMemory(char: Character?,
+                             memory: inout Memory,
+                             result: inout String
+) {
+    if let mchar = memory.char, char != mchar {
+        result.append(Character(String(memory.count)))
+        result.append(Character(String(mchar.hexDigitValue!)))
+        memory = (0, nil)
     }
 }
