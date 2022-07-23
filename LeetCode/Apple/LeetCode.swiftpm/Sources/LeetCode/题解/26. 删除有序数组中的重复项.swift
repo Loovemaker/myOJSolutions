@@ -1,8 +1,10 @@
 public extension Solution {
-    var removeDuplicates: (_ nums: inout [Int]) -> Int {
+    typealias removeDuplicates_type = (_ nums: inout [Int]) -> Int
+    
+    var removeDuplicates: removeDuplicates_type {
         removeDuplicates_Window
     }
-    var removeDuplicates_all: [(_ nums: inout [Int]) -> Int] {
+    var removeDuplicates_all: [removeDuplicates_type] {
         [
             removeDuplicates_Window,
             removeDuplicates_Cheating,
