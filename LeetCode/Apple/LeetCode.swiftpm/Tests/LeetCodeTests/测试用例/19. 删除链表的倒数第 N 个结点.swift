@@ -4,16 +4,19 @@ import XCTest
 extension LeetCodeTests {
     
     func test_removeNthFromEnd() {
-        typealias Input = (ListNode?, Int)
-        typealias Output = ListNode?
+        typealias Element = Int
+        typealias Input = ([Element], Int)
+        typealias Output = [Element]
         
         @CPBuilder<Input, Output> var casePairs: [CasePair<Input, Output>] {
-            ((.init(from: 1 ... 5), 2), .init(from: [1, 2, 3, 5]))
-            ((.init(from: [1]), 1), .init(from: []))
-            ((.init(from: [1, 2]), 1), .init(from: [1]))
+            ((Array(1 ... 5), 2), [1, 2, 3, 5])
+            (([1], 1), [])
+            (([1, 2], 1), [1])
         }
         
-        casePairs.xctAssertEqual(in: solution.removeNthFromEnd)
+        casePairs.xctAssertEqual {
+            solution.removeNthFromEnd(.init(from: $0.0), $0.1)?.array ?? []
+        }
     }
 }
 
