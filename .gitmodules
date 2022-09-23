@@ -1,0 +1,4 @@
+[submodule "LeetCode/LeetCode.swiftpm"]
+	path = LeetCode/LeetCode.swiftpm
+	url = git@github.com:Loovemaker/LeetCode.swiftpm
+    branch = dev
